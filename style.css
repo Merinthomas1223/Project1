@@ -1,19 +1,23 @@
 * {
   margin: 0;
-  padding: 0;
   background-color:#8fbc8f; 
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 50px;
   text-align: center;
-  color: #000080;
+  color: white;
+  padding: 20px;
+  font-family: 'Dancing Script', cursive;
+  font-weight: bolder;
+  padding-top: 30px;
 }
 
 h1{
-  color: orangered;
+ color: black;
   text-align: center;
 }
+
 #gameBoard div {
   height: 140px;
   width: 90px;
@@ -21,22 +25,20 @@ h1{
   align-items: center;
   justify-content: center;
   color: 000080;
-  background-color: black;
+  background-color:beige;
 }
 
 #gameBoard div:hover {
-  cursor: pointer;
+  cursor: wait;
 }
 
 .game {
   display: grid;
-  grid-template-columns: repeat(4, 130px);
-  grid-row-gap: 15px;
+  grid-template-columns: repeat(4, 120px);
+  grid-row-gap:25px;
   align-items: center;
   justify-content: center;
   margin:35px;
-
-  
 }
 
 .facedown {
