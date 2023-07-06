@@ -49,17 +49,16 @@
       name: 'github',
       icon: '<i class="fa-brands fa-github"></i>'
     }
-  ]
+  ];
   
+
 	/*----- state variables -----*/
-    let boardFlippedCards; //
+
+    let boardFlippedCards; 
     let matchedPairs;
+    let wrongGuess;
+
 	/*----- cached elements  -----*/
-    let newDiv;
-    const gameBoard = document.querySelectorAll('#gameBoard > div');
-    // const newDiv = document.querySelectorAll('div');
-  /*----- event listeners -----*/
-  gameBoard.addEventListener('click', flippedCard);
 
   /*----- functions -----*/
 
@@ -68,58 +67,70 @@
   function init() {
     boardFlippedCards = [];
     matchedPairs = 0;
+    wrongGuess = 0;
     render();
   }
   
   function render() {
-
+    renderCards();
+    renderMatch();
   }
 
 
   function renderCards() {
-     cardsArr.forEach((cardArr, idx) => {
-      //give icons for each div
-    });
-  }
+    //iterate through array of object icons
+    cardsArr.forEach((cardArr, idx, arr) => {
+      //creating new divs and append to the parent div
+     const newDiv = document.createElement('div');
+     newDiv.setAttribute('id', idx);
+     newDiv.classList.add('facedown');
+     newDiv.classList.add('matched');
+     gameBoard.appendChild(newDiv);
+    //    /*----- event listeners -----*/
+
+    newDiv.addEventListener('click', renderFlippedCard);
+   });
+ }
 
   function renderFlippedCard(evt) {
-    //Player take turns to turn over two cards
-    if(boardFlippedCards.length <2 && evt.target.classList.contains('active')) {
-      let cardId = evt.target.getAttribute('id');
+//     //Player take turns to turn over two cards
+    if(boardFlippedCards.length <2 && evt.target.classList.contains('facedown')) {
+      let cardId = evt.target.getAttribute("id");
       boardFlippedCards.push(evt.target);
-      evt.target.classList.remove('facedown');
+      evt.target.classList.remove('matched');
       evt.target.innerHTML = cardsArr[cardId].icon;
     }
     if (boardFlippedCards.length == 2) {
       setTimeout(renderMatch, 1500);
     }
 }
-
+//checking the match
 function renderMatch() {
-  const card1Id = boardFlippedCards[0].getAttribute('id');
-  const card2Id = boardFlippedCards[1].getAttribute('id');
+  const cardId1 = boardFlippedCards[0].getAttribute("id");
+  const cardId2 = boardFlippedCards[1].getAttribute("id");
 
   //If two cards have same picture, they they will keep cards and card disappear, else turn the card facedown
 
-  if(cardsArr[card1Id].name === cardsArr[card2Id].name) {
+  if(cardsArr[cardId1].name === cardsArr[cardId2].name) {
 
     boardFlippedCards[0].style.border = 'none';
-    boardFlippedCards[0].style.backgroundColor = '8fbc8f';
+    boardFlippedCards[0].style.backgroundColor = '#8fbc8f';
     boardFlippedCards[0].innerHTML = '';
     boardFlippedCards[0].classList.remove('matched');
 
     boardFlippedCards[1].style.border = 'none';
-    boardFlippedCards[1].style.backgroundColor = '8fbc8f';
+    boardFlippedCards[1].style.backgroundColor = '#8fbc8f';
     boardFlippedCards[1].innerHTML = '';
     boardFlippedCards[1].classList.remove('matched');
     matchedPairs ++;
-
+    gameOver();
   }else {
     boardFlippedCards[0].innerHTML = '';
     boardFlippedCards[0].classList.add('facedown');
 
     boardFlippedCards[1].innerHTML = '';
     boardFlippedCards[1].classList.add('facedown');
+    wrongGuess ++;
   }
 
   boardFlippedCards = [];
@@ -128,23 +139,8 @@ function renderMatch() {
 function gameOver() {
   if (matchedPairs === cardsArr.length/2) {
     h1.innerHTML = "You Won";
+  }else if(wrongGuess === 12) {
+    h1.innerHTML = "Game Over"
   }
 }
-function renderMessage() {
 
-}
-
-
-//Display 12 cards facedown when the page is initially displayed
-
-//Player take turns to turn over two cards
-
-//If two cards have same picture, they they will keep cards and card disappear, else turn the card facedown
-
-//Need to display "wrong" guess until a timer expires or until the next click.
-
-//Must Lose after X number of bad guesses
-
-//If collect all then Wins!
-
-//cardsArray[cardId].icon;
