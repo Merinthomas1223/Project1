@@ -59,7 +59,7 @@
     let wrongGuess;
 
 	/*----- cached elements  -----*/
-
+   const gameBoard =document.getElementById('gameBoard');
   /*----- functions -----*/
 
   init();
@@ -73,7 +73,7 @@
   
   function render() {
     renderCards();
-    renderMatch();
+    // renderMatch();
   }
 
 
@@ -97,11 +97,11 @@
     if(boardFlippedCards.length <2 && evt.target.classList.contains('facedown')) {
       let cardId = evt.target.getAttribute("id");
       boardFlippedCards.push(evt.target);
-      evt.target.classList.remove('matched');
+      evt.target.classList.remove('facedown');
       evt.target.innerHTML = cardsArr[cardId].icon;
     }
     if (boardFlippedCards.length == 2) {
-      setTimeout(renderMatch, 1500);
+      setTimeout(renderMatch, 1100);
     }
 }
 //checking the match
@@ -124,6 +124,7 @@ function renderMatch() {
     boardFlippedCards[1].classList.remove('matched');
     matchedPairs ++;
     gameOver();
+
   }else {
     boardFlippedCards[0].innerHTML = '';
     boardFlippedCards[0].classList.add('facedown');
@@ -137,7 +138,7 @@ function renderMatch() {
 }
 
 function gameOver() {
-  if (matchedPairs === cardsArr.length/2) {
+  if (matchedPairs === (cardsArr.length/2) - 1) {
     h1.innerHTML = "You Won";
   }else if(wrongGuess === 12) {
     h1.innerHTML = "Game Over"

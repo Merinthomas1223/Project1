@@ -16,3 +16,8 @@
 1. HTML
 2. CSS
 3. JavaScript
+
+# Icebox
+
+Want to shuffle the cards after every game
+Render points and loses after every round 
