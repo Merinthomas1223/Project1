@@ -1,23 +1,33 @@
 # MemoryGame
 
-1.Display 12 cards facedown when the page is initially displayed
+A Game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn.
 
-2.Player take turns to turn over two cards
+# Game Overview
 
-3.If two cards have same picture, they they will keep cards and card disappear, else turn the card facedown
+1. The game starts by displaying 12 cards facedown.
 
-4.Need to display "wrong" guess until a timer expires or until the next click.
+2. Player take turns to turn over two cards
 
-5.Must Lose after X number of bad guesses
+3. If player choose two cards with same picture, they they will keep cards and card disappear.
 
-6.If collect all then Wins!
+4. If the player chose different cards, card will turn facedown
+
+5. If the chosen cards are wrong it will display for few seconds before turn back.
+
+6. Player will lose after 12 number of bad guesses
+
+7. If player collect all cards then Wins!
 
 # Technologies Used
 1. HTML
 2. CSS
 3. JavaScript
 
-# Icebox
+#Play Game
 
-Want to shuffle the cards after every game
-Render points and loses after every round 
+You can play the game by accessing the link: https://merinthomas1223.github.io/Project1/
+
+# Icebox Features
+
+1. Want to shuffle the cards after every game
+2. Render points and loses after every round 

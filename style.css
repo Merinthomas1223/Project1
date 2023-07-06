@@ -5,21 +5,21 @@
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 30px;
   text-align: center;
   color: #000080;
-  padding-top: 10px;
 }
 
-
+h1{
+  color: orangered;
+  text-align: center;
+}
 #gameBoard div {
   height: 140px;
   width: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border:2px solid teal;
-  font-size: 2rem;
   color: 000080;
   background-color: black;
 }
@@ -31,10 +31,10 @@ h2 {
 .game {
   display: grid;
   grid-template-columns: repeat(4, 130px);
-  grid-row-gap: 2em;
+  grid-row-gap: 15px;
   align-items: center;
   justify-content: center;
-  margin:40px auto;
+  margin:35px;
 
   
 }
@@ -42,4 +42,5 @@ h2 {
 .facedown {
   background: radial-gradient(circle, transparent 20%, #2d9e9e 20%, #2d9e9e 80%, transparent 80%, transparent) 0% 0% / 64px 64px, radial-gradient(circle, transparent 20%, #2d9e9e 20%, #2d9e9e 80%, transparent 80%, transparent) 32px 32px / 64px 64px, linear-gradient(#e1d9ea 2px, transparent 2px) 0px -1px / 32px 32px, linear-gradient(90deg, #e1d9ea 2px, #2d9e9e 2px) -1px 0px / 32px 32px #2d9e9e;
 }
+
 

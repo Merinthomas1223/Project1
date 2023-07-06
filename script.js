@@ -1,52 +1,52 @@
 	/*----- constants -----*/
-
+  //Array of icons 
   const cardsArr = [
     {
-      name: 'facebook',
+      title: 'facebook',
       icon: '<i class="fa-brands fa-facebook"></i>'
     },
     {
-      name: 'Google',
+      title: 'Google',
       icon: '<i class="fa-brands fa-google"></i>'
     },
     {
-      name: 'codepen',
+      title: 'codepen',
       icon: '<i class="fa-brands fa-codepen"></i>'
     },
     {
-      name: 'slack',
+      title: 'slack',
       icon: '<i class="fa-brands fa-slack"></i>'
     },
     {
-      name: 'indeed',
+      title: 'indeed',
       icon: '<i class="fa-brands fa-linkedin"></i>'
     },
     {
-      name: 'github',
+      title: 'github',
       icon: '<i class="fa-brands fa-github"></i>'
     },
     {
-      name: 'facebook',
+      title: 'facebook',
       icon: '<i class="fa-brands fa-facebook"></i>'
     },
     {
-      name: 'Google',
+      title: 'Google',
       icon: '<i class="fa-brands fa-google"></i>'
     },
     {
-      name: 'codepen',
+      title: 'codepen',
       icon: '<i class="fa-brands fa-codepen"></i>'
     },
     {
-      name: 'slack',
+      title: 'slack',
       icon: '<i class="fa-brands fa-slack"></i>'
     },
     {
-      name: 'indeed',
+      title: 'indeed',
       icon: '<i class="fa-brands fa-linkedin"></i>'
     },
     {
-      name: 'github',
+      title: 'github',
       icon: '<i class="fa-brands fa-github"></i>'
     }
   ];
@@ -59,6 +59,7 @@
     let wrongGuess;
 
 	/*----- cached elements  -----*/
+  let result = document.createElement('h1');
    const gameBoard =document.getElementById('gameBoard');
   /*----- functions -----*/
 
@@ -73,75 +74,86 @@
   
   function render() {
     renderCards();
-    // renderMatch();
   }
 
 
   function renderCards() {
     //iterate through array of object icons
-    cardsArr.forEach((cardArr, idx, arr) => {
+    cardsArr.forEach((cardArr, idx) => {
       //creating new divs and append to the parent div
      const newDiv = document.createElement('div');
      newDiv.setAttribute('id', idx);
      newDiv.classList.add('facedown');
      newDiv.classList.add('matched');
      gameBoard.appendChild(newDiv);
-    //    /*----- event listeners -----*/
+     /*----- event listeners -----*/
 
     newDiv.addEventListener('click', renderFlippedCard);
    });
  }
 
+ //Rendering the image inside each card
+
   function renderFlippedCard(evt) {
-//     //Player take turns to turn over two cards
-    if(boardFlippedCards.length <2 && evt.target.classList.contains('facedown')) {
-      let cardId = evt.target.getAttribute("id");
-      boardFlippedCards.push(evt.target);
-      evt.target.classList.remove('facedown');
-      evt.target.innerHTML = cardsArr[cardId].icon;
+ //Player take turns to turn over two cards
+    if(boardFlippedCards.length <=1 && evt.target.classList.contains('facedown')) {
+          //grabbing clicked event and pushing to the array for checking equality
+          let cardId = evt.target.getAttribute('id');
+          boardFlippedCards.push(evt.target);
+          // console.log(boardFlippedCards);
+          evt.target.classList.remove('facedown');
+
+          evt.target.innerHTML = cardsArr[cardId].icon;
     }
-    if (boardFlippedCards.length == 2) {
-      setTimeout(renderMatch, 1100);
+    //Render the card for few seconds when turns
+    if (boardFlippedCards.length === 2) {
+          setTimeout(function() {
+            renderMatch();
+          },1100)
     }
 }
 //checking the match
 function renderMatch() {
-  const cardId1 = boardFlippedCards[0].getAttribute("id");
-  const cardId2 = boardFlippedCards[1].getAttribute("id");
 
-  //If two cards have same picture, they they will keep cards and card disappear, else turn the card facedown
+      const cardId1 = boardFlippedCards[0].getAttribute('id');
+      const cardId2 = boardFlippedCards[1].getAttribute('id');
 
-  if(cardsArr[cardId1].name === cardsArr[cardId2].name) {
+  //If two cards have same picture, they they will keep cards and card disappear
 
-    boardFlippedCards[0].style.border = 'none';
-    boardFlippedCards[0].style.backgroundColor = '#8fbc8f';
-    boardFlippedCards[0].innerHTML = '';
-    boardFlippedCards[0].classList.remove('matched');
+      if(cardsArr[cardId1].title === cardsArr[cardId2].title) {
 
-    boardFlippedCards[1].style.border = 'none';
-    boardFlippedCards[1].style.backgroundColor = '#8fbc8f';
-    boardFlippedCards[1].innerHTML = '';
-    boardFlippedCards[1].classList.remove('matched');
-    matchedPairs ++;
-    gameOver();
+            boardFlippedCards[0].style.backgroundColor = '#8fbc8f';
+            boardFlippedCards[0].innerHTML = '';
+            boardFlippedCards[0].classList.remove('matched');
 
-  }else {
-    boardFlippedCards[0].innerHTML = '';
-    boardFlippedCards[0].classList.add('facedown');
+            boardFlippedCards[1].style.backgroundColor = '#8fbc8f';
+            boardFlippedCards[1].innerHTML = '';
+            boardFlippedCards[1].classList.remove('matched');
+            matchedPairs ++;
+            gameOver();
+//If two cards have different images, turn the card facedown
+      }else {
+            boardFlippedCards[0].innerHTML = '';
+            boardFlippedCards[0].classList.add('facedown');
 
-    boardFlippedCards[1].innerHTML = '';
-    boardFlippedCards[1].classList.add('facedown');
-    wrongGuess ++;
-  }
+            boardFlippedCards[1].innerHTML = '';
+            boardFlippedCards[1].classList.add('facedown');
+            wrongGuess ++;
+            gameOver();
 
-  boardFlippedCards = [];
+           }
+
+           boardFlippedCards = [];
 }
 
 function gameOver() {
-  if (matchedPairs === (cardsArr.length/2) - 1) {
-    h1.innerHTML = "You Won";
-  }else if(wrongGuess === 12) {
-    h1.innerHTML = "Game Over"
+
+  if (matchedPairs === (cardsArr.length/2)) {
+    // alert("You win");
+    result.innertext = "You Won";
+  }else if(wrongGuess === 6) {
+    result.innertext = "Game Over"
+    // alert("You Lose");
   }
 }
 
