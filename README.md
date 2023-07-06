@@ -30,4 +30,22 @@ You can play the game by accessing the link: https://merinthomas1223.github.io/P
 # Icebox Features
 
 1. Want to shuffle the cards after every game
-2. Render points and loses after every round 
+2. Render points and loses after every round
+
+ # Game Images
+ 
+![Image 2023-07-06 at 7 18 PM](https://github.com/Merinthomas1223/Project1/assets/133532396/1b39b890-49a8-4095-ad8d-9bace02d7ff5)
+
+
+![Image 2023-07-06 at 7 19 PM](https://github.com/Merinthomas1223/Project1/assets/133532396/51196c20-30c3-485e-9b6a-c032c51c46dd)
+
+
+![Image 2023-07-06 at 7 20 PM](https://github.com/Merinthomas1223/Project1/assets/133532396/32c160ed-1b58-43d8-9bbc-6e7d06be2fc5)
+
+
+![Image 2023-07-06 at 7 23 PM](https://github.com/Merinthomas1223/Project1/assets/133532396/5b9cb918-82d0-4cf5-b945-78a8b20745dd)
+
+
+ 
+
+ 
