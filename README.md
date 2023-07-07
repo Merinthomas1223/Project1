@@ -8,11 +8,11 @@ A Game in which all of the cards are laid face down on a surface and two cards a
 
 2. Player take turns to turn over two cards
 
-3. If player choose two cards with same picture, they they will keep cards and card disappear.
+3. If player choose two cards with same icons, they they will keep cards and card disappear.
 
 4. If the player chose different cards, card will turn facedown
 
-5. If the chosen cards are wrong it will display for few seconds before turn back.
+5. After selecting cards it will display icons for few seconds.
 
 6. Player will lose after 12 number of bad guesses
 
