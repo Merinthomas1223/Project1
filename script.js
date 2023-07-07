@@ -99,12 +99,11 @@ const arrayLength = cardsArr.length;
  //Rendering the image inside each card
 
   function renderFlippedCard(evt) {
- //Player take turns to turn over two cards
+ //Player take turns to turn over two cards, 
     if(boardFlippedCards.length <2 && evt.target.classList.contains('facedown')) {
-          //grabbing clicked cards and pushing to the array for checking equality
+          //grabbing clicked cards (id) and pushing to the array for checking equality
           let cardId = evt.target.getAttribute('id');
           boardFlippedCards.push(evt.target);
-          console.log(boardFlippedCards);
           evt.target.classList.remove('facedown');
           evt.target.innerHTML = cardsArr[cardId].icon;
     }
@@ -129,11 +128,9 @@ function renderMatch() {
 
       if(cardsArr[cardId1].title === cardsArr[cardId2].title) {
 
-            boardFlippedCards[0].style.backgroundColor = '#8fbc8f';
             boardFlippedCards[0].innerHTML = '';
             boardFlippedCards[0].classList.remove('notmatched');
 
-            boardFlippedCards[1].style.backgroundColor = '#8fbc8f';
             boardFlippedCards[1].innerHTML = '';
             boardFlippedCards[1].classList.remove('notmatched');
             matchedPairs ++;
