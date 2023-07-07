@@ -88,7 +88,7 @@ const arrayLength = cardsArr.length;
      const newDiv = document.createElement('div');
      newDiv.setAttribute('id', idx);
      newDiv.classList.add('facedown');
-     newDiv.classList.add('matched');
+     newDiv.classList.add('notmatched');
      gameBoard.appendChild(newDiv);
      /*----- event listeners -----*/
 
@@ -131,11 +131,11 @@ function renderMatch() {
 
             boardFlippedCards[0].style.backgroundColor = '#8fbc8f';
             boardFlippedCards[0].innerHTML = '';
-            boardFlippedCards[0].classList.remove('matched');
+            boardFlippedCards[0].classList.remove('notmatched');
 
             boardFlippedCards[1].style.backgroundColor = '#8fbc8f';
             boardFlippedCards[1].innerHTML = '';
-            boardFlippedCards[1].classList.remove('matched');
+            boardFlippedCards[1].classList.remove('notmatched');
             matchedPairs ++;
             gameOver();
             
