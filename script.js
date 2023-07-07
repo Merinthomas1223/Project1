@@ -50,7 +50,8 @@
       icon: '<i class="fa-brands fa-github fa-6x"></i>'
     }
   ];
-  
+
+const arrayLength = cardsArr.length;
 
 	/*----- state variables -----*/
 
@@ -155,7 +156,7 @@ function renderMatch() {
 
 function gameOver() {
 
-  if (matchedPairs === (cardsArr.length/2)) {
+  if (matchedPairs === (arrayLength/2)) {
     result.innerHTML = "You Won!!";
   }else if(wrongGuess === 6) {
     result.innerHTML = "Game Over" 
