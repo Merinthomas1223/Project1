@@ -33,7 +33,7 @@ h1{
   cursor: wait;
 }
 
-.game {
+.memoryGame {
   display: grid;
   grid-template-columns: repeat(4, 0.15fr);
   grid-row-gap:25px;
