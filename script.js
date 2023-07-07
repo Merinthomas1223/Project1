@@ -100,7 +100,7 @@ const arrayLength = cardsArr.length;
 
   function renderFlippedCard(evt) {
  //Player take turns to turn over two cards
-    if(boardFlippedCards.length <=1 && evt.target.classList.contains('facedown')) {
+    if(boardFlippedCards.length <2 && evt.target.classList.contains('facedown')) {
           //grabbing clicked cards and pushing to the array for checking equality
           let cardId = evt.target.getAttribute('id');
           boardFlippedCards.push(evt.target);
