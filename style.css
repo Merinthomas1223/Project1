@@ -20,6 +20,13 @@ h1{
   text-align: center;
 }
 
+footer {
+  padding: 10px;
+  font-weight: bold;
+  color: darkblue;
+}
+
+
 #gameBoard div {
   height: 20vh;
   width: 10vw;
