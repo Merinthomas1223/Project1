@@ -108,7 +108,10 @@
           evt.target.innerHTML = cardsArr[cardId].icon;
     }
 
+ cardDisplay();
+}
     //Render the card for few seconds when turns
+function cardDisplay() {
     if (boardFlippedCards.length === 2) {
           setTimeout(function() {
             renderMatch();
