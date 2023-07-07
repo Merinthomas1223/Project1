@@ -23,7 +23,7 @@ A Game in which all of the cards are laid face down on a surface and two cards a
 2. CSS
 3. JavaScript
 
-#Play Game
+# Play Game
 
 You can play the game by accessing the link: https://merinthomas1223.github.io/Project1/
 
